@@ -58,7 +58,7 @@ const SignUp = () => {
     }
 
     return (
-        <section className='container mx-auto my-12 bg-gradient-to-r from-slate-200 to-slate-400'>
+        <section className='container mx-auto my-12 bg-gradient-to-r from-slate-300 to-slate-400'>
             <div className='py-12 justify-center flex items-center'>
                 <div className='bg-slate-100 p-5 border rounded-xl w-9/12 md:w-1/2 lg:w-4/12 mx-auto'>
                     <form onSubmit={handleSubmit(handleSignUP)} className='grid grid-cols-1 gap-1'>
@@ -96,7 +96,7 @@ const SignUp = () => {
                     </form>
                     <p className='font-bold mt-3 text-center'>Already have an account? <Link to='/login' className='link link-hover text-red-600'>Login Now</Link></p>
                     <div className="divider my-8"><span className='font-bold'>OR</span></div>
-                    <div><button onClick={handleLoginWithGoogle} className='btn btn-neutral text-white font-bold w-full'>Continue with Google</button></div>
+                    <div><button onClick={handleLoginWithGoogle} className='btn btn-secondary text-white font-bold w-full'>Continue with Google</button></div>
                 </div>
             </div>
         </section>

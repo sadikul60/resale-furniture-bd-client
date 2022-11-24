@@ -1,0 +1,80 @@
+[
+    {
+        "productName": "Bed",
+        "categoryName": "Bedroom",
+        "categoryId": "1112a",
+        "resalePrice": 4450,
+        "originalPrice": 8450,
+        "phone": "",
+        "seller": "",
+        "usedYear": "",
+        "location": "",
+        "img": "https://media.istockphoto.com/id/1193385037/photo/moving-house.jpg?s=612x612&w=0&k=20&c=Z1PMDgcjfhdlGur8_wGE5a1psxvAVQf8_FfQ6GGyHBU=",
+        "description": "This is bed. A typical western bedroom contains as bedroom furniture one or two beds (ranging from a crib for an infant, a single or twin bed for a toddler, child."
+    },
+    {
+        "productName": "Chair",
+        "categoryName": "Bedroom",
+        "categoryId": "1112a",
+        "resalePrice": 450,
+        "originalPrice": 1050,
+        "phone": "",
+        "seller": "",
+        "usedYear": "",
+        "location": "",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQziMDcUmemvybaRjvQAidZ17zLsvTJUnlxEA&usqp=CAU",
+        "description": "This is Chair. A chair is a type of seat, typically designed for one person and consisting of one or more legs, a flat or slightly angled seat and a back-rest."
+    },
+    {
+        "productName": "Dining Table",
+        "categoryName": "Dining Room",
+        "categoryId": "1113b",
+        "resalePrice": 1450,
+        "originalPrice": 2450,
+        "phone": "",
+        "seller": "",
+        "usedYear": "",
+        "location": "",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqHJ0e1vcLavT711kKowdL3dqkuZtdsAgJpw&usqp=CAU",
+        "description": "A table, especially one seating several persons, where meals are served and eaten, especially the major or more formal meals."
+    },
+    {
+        "productName": "Sofa",
+        "categoryName": "Dining Room",
+        "categoryId": "1113b",
+        "resalePrice": 3450,
+        "originalPrice": 5450,
+        "phone": "",
+        "seller": "",
+        "usedYear": "",
+        "location": "",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMKJ8B1Ap9k6ZntHu1FtO6VLjvbZciQMLGWQ&usqp=CAU",
+        "description": "A sofa is a long, comfortable seat with a back and usually with arms, which two or three people can sit on."
+    },
+    {
+        "productName": "Rice Cooker",
+        "categoryName": "Kitchen",
+        "categoryId": "1114c",
+        "resalePrice": 2250,
+        "originalPrice": 1450,
+        "phone": "",
+        "seller": "",
+        "usedYear": "",
+        "location": "",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDvWKOHMbNpVTvixZqR5fRxA9zajQrj2-6bg&usqp=CAU",
+        "description": "A rice cooker or rice steamer is an automated kitchen appliance designed to boil or steam rice."
+    },
+    {
+        "productName": "Hotpot",
+        "categoryName": "Dining Room",
+        "categoryId": "1114c",
+        "resalePrice":1250,
+        "originalPrice": 1650,
+        "phone": "",
+        "seller": "",
+        "usedYear": "",
+        "location": "",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzD4Ju8kFvei3MPw6-C7HdZElZj-qXseKS-Q&usqp=CAU",
+        "description": "Hot pot is a flavorful broth traditionally served inside a large metal pot. "
+    }
+]

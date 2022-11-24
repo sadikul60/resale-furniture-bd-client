@@ -7,7 +7,7 @@ import logo from '../../../assets/banner/logo.png';
 
 const Banner = () => {
     return (
-        <section className='mx-5 p-5 bg-gradient-to-r from-primary to-neutral'>
+        <section className='p-5 bg-gradient-to-r from-primary to-neutral'>
             <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2'>
                 <div className='hidden lg:block relative'>
                     <h1 className='text-2xl md:text-3xl lg:text-4xl text-white text-center font-bold mt-12'>
