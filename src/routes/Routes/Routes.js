@@ -1,9 +1,10 @@
 import {createBrowserRouter} from 'react-router-dom';
 import Main from '../../layouts/Main/Main';
-import Products from '../../Pages/Home/Categories/Products';
+import Products from '../../Pages/Products/Products';
 import Home from '../../Pages/Home/Home/Home';
 import Login from '../../Pages/Login/Login';
 import SignUp from '../../Pages/SignUp/SignUp';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/category/:id',
-                element: <Products></Products>,
+                element: <PrivateRoute><Products></Products></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
             },
         ]

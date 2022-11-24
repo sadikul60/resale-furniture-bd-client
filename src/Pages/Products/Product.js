@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Product = ({product}) => {
+const Product = ({product, setProduct}) => {
     const {productName, img, description, resalePrice, originalPrice, location, phone, seller, usedYear} = product;
     return (
         <div className="card mx-4 bg-base-100 shadow-xl">
@@ -18,13 +18,15 @@ const Product = ({product}) => {
                 <p className='font-bold'>Location: {location}</p>
                 <p className='font-bold'>Seller: {seller}</p>
                 <p className='font-bold'>Phone no: {phone}</p>
-                <div className="card-actions justify-end mt-2">
-                    <Link to='/' className="w-5/12 md:w-4/12 btn btn-primary btn-outline rounded-3xl md:text-lg font-bold">
+                <div className="flex justify-center mt-2">
+                    <Link to='/' className="w-6/12 mr-2 btn btn-primary btn-outline rounded-3xl text-sm md:text-lg font-bold">
                         <p>Go Back</p>
                     </Link> 
-                    <Link to='/' className="w-5/12 md:w-4/12 btn btn-primary btn-outline rounded-3xl md:text-lg font-bold">
-                        <p>Book Now</p>
-                    </Link>
+                    <label
+                        onClick={() => setProduct(product)}
+                        htmlFor="booking-modal" className="w-6/12 btn btn-primary btn-outline rounded-3xl text-sm md:text-lg font-bold">
+                            <p>Book Now</p>
+                    </label>
                 </div>
             </div>
         </div>
