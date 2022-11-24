@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const BookingModal = ({product, setProduct}) => {
@@ -25,9 +26,23 @@ const BookingModal = ({product, setProduct}) => {
             phone
         }
 
+        // fetch data and save to mongodb
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            toast.success('Booking confirmed.');
+        })
         setProduct(null);
         console.log(booking)
     }
+
     return (
         <div>
             <input type="checkbox" id="booking-modal" className="modal-toggle" />

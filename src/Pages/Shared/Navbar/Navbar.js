@@ -14,9 +14,11 @@ const Navbar = () => {
 
     const menuItems = <>
         <li><Link to='/home'>Home</Link></li>
+        <li><Link to='/blogs'>Blogs</Link></li>
         {
             user ? 
             <>
+            <li><Link to='/dashboard'>Dashboard</Link></li>
             <li><button onClick={handleLogOut} className='btn btn-secondary btn-outline rounded-3xl' to='/login'><span className='text-white'>Log Out</span></button></li>
             </>
             :
@@ -44,12 +46,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="dropdown lg:hidden">
-                    <label tabIndex={0} className="btn btn-ghost text-white lg:hidden">
+                    <label htmlFor="dashboard-drawer" tabIndex={0} className="btn btn-ghost text-white lg:hidden">
                         Menu
                     </label>
-                    {/* <ul tabIndex={1} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        {menuItems}
-                    </ul> */}
                 </div>
                 </div>
             </div>
