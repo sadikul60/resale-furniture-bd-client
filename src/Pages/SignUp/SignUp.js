@@ -1,3 +1,4 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
@@ -5,10 +6,12 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
     const {register, handleSubmit, formState: {errors}} = useForm();
     const [signUpError, setSingUpError] = useState('');
     const navigate = useNavigate()
+
+    const googleProvider = new GoogleAuthProvider();
 
     const handleSignUP = data => {
         const name = data.name;
@@ -41,6 +44,19 @@ const SignUp = () => {
         })
         .catch(err => setSingUpError(err.message))
     }
+
+    // handle login with google
+    const handleLoginWithGoogle = () => {
+        signInWithGoogle(googleProvider)
+        .then(result => {
+            const user = result.user;
+            toast.success('SignUp successfully.');
+            navigate('/');
+            console.log(user);
+        })
+        .catch(err => console.error(err.message))
+    }
+
     return (
         <section className='container mx-auto my-12 bg-gradient-to-r from-slate-200 to-slate-400'>
             <div className='py-12 justify-center flex items-center'>
@@ -80,7 +96,7 @@ const SignUp = () => {
                     </form>
                     <p className='font-bold mt-3 text-center'>Already have an account? <Link to='/login' className='link link-hover text-red-600'>Login Now</Link></p>
                     <div className="divider my-8"><span className='font-bold'>OR</span></div>
-                    <div><button className='btn btn-neutral text-white font-bold w-full'>Continue with Google</button></div>
+                    <div><button onClick={handleLoginWithGoogle} className='btn btn-neutral text-white font-bold w-full'>Continue with Google</button></div>
                 </div>
             </div>
         </section>

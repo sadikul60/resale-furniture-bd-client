@@ -1,3 +1,4 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -5,15 +6,14 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
-    const {logIn} = useContext(AuthContext);
 
+    const { logIn, signInWithGoogle } = useContext(AuthContext);
     const {register, handleSubmit, resetField, formState: {errors}} = useForm();
-    // const {logIn, signInWithGoogle,} = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
     // const [token] = useToken(loginUserEmail);
 
-    // const googleProvider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -39,6 +39,18 @@ const Login = () => {
         })
         .catch(err => setLoginError(err.message))
     };
+
+    // handle login with google
+    const handleLoginWithGoogle = () => {
+        signInWithGoogle(googleProvider)
+        .then(result => {
+            const user = result.user;
+            toast.success('Login successfully.');
+            navigate('/');
+            console.log(user);
+        })
+        .catch(err => console.error(err.message))
+    }
 
     return (
         <section className='container mx-auto my-12 bg-gradient-to-r from-slate-200 to-slate-400'>
@@ -66,7 +78,7 @@ const Login = () => {
                     <p className='font-bold text-center mt-4 hidden md:block'>New to our Site? <Link to='/signup' className='link link-hover text-red-600'>Create New Account</Link></p>
                     <p className='font-bold text-center mt-4 md:hidden'>New to our Site? <Link to='/signup' className='link link-hover text-red-600'>Sign Up</Link></p>
                     <div className="divider my-8"><span className='font-bold'>OR</span></div>
-                    <div><button className='btn btn-neutral text-white font-bold w-full'>Continue with Google</button></div>
+                    <div><button onClick={handleLoginWithGoogle} className='btn btn-neutral text-white font-bold w-full'>Continue with Google</button></div>
                 </div>
             </div>
         </section>
