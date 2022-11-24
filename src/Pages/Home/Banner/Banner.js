@@ -19,16 +19,16 @@ const Banner = () => {
                 </div>
                 <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-5'>
                     <figure>
-                        <img className='w-full h-48 rounded-lg' src={bedroom} alt="" />
+                        <img className='w-full h-28 md:h-48 rounded-lg' src={bedroom} alt="" />
                     </figure>
                     <figure>
-                        <img className='w-full h-48 rounded-lg' src={dining} alt="" />
+                        <img className='w-full h-28 md:h-48 rounded-lg' src={dining} alt="" />
                     </figure>
                     <figure>
-                        <img className='w-full h-48 rounded-lg' src={kitchen} alt="" />
+                        <img className='w-full h-28 md:h-48 rounded-lg' src={kitchen} alt="" />
                     </figure>
                     <figure>
-                        <img className='w-full h-48 rounded-lg' src={corridor} alt="" />
+                        <img className='w-full h-28 md:h-48 rounded-lg' src={corridor} alt="" />
                     </figure>
                 </div>
             </div>
