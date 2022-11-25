@@ -17,6 +17,7 @@ const DashboardLayout = () => {
                         <ul className="menu p-4 w-80 bg-gradient-to-r from-primary to-neutral text-white font-bold">
                             <li><Link to='/dashboard'>My Orders</Link></li>
                             <li><Link to='/dashboard/allUsers'>All Users</Link></li>
+                            <li><Link to='/dashboard/addProduct'>Add Product</Link></li>
                         </ul>
                     </div>
                 </div>
