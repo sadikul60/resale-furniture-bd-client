@@ -8,6 +8,7 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import MyOrders from '../../Pages/MyOrders/MyOrders';
 import DashboardLayout from '../../layouts/DashboardLayout/DashboardLayout';
 import Blogs from '../../Pages/Blogs/Blogs';
+import AllUsers from '../../Pages/AllUsers/AllUsers';
 
 const router = createBrowserRouter([
     {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoute><Products></Products></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/categories/${params.id}`)
             },
             {
                 path: '/blogs',
@@ -43,12 +44,16 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
             {
-                path: '/dashboard/myOrders',
+                path: '/dashboard',
                 element: <MyOrders></MyOrders>
-            }
+            },
+            {
+                path: '/dashboard/allUsers',
+                element: <AllUsers></AllUsers>
+            },
         ]
     }
 ]);

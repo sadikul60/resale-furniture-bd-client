@@ -24,7 +24,7 @@ const Product = ({product, setProduct}) => {
                     </Link> 
                     <label
                         onClick={() => setProduct(product)}
-                        htmlFor="booking-modal" className="w-6/12 btn btn-primary btn-outline rounded-3xl text-sm md:text-lg font-bold">
+                        htmlFor="booking-modal" className="w-6/12 btn btn-secondary btn-outline rounded-3xl text-sm md:text-lg font-bold">
                             <p>Book Now</p>
                     </label>
                 </div>

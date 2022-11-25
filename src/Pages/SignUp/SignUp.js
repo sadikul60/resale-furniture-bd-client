@@ -1,15 +1,25 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useToken from '../../hooks/UseToken';
 
 const SignUp = () => {
     const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
     const {register, handleSubmit, formState: {errors}} = useForm();
+    const [createUserEmail, setCreateUserEmail] = useState('');
     const [signUpError, setSingUpError] = useState('');
-    const navigate = useNavigate()
+    const [token] = useToken(createUserEmail);
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
+
+    if(token){
+        navigate(from, {replace: true});
+    }
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -30,28 +40,46 @@ const SignUp = () => {
             const user = result.user;
                 toast.success('User Created successfully.')
                 setSingUpError('');
-                navigate('/')
-                // console.log(user);
             const profile = {
                 displayName: name,
             }
 
             updateUser(profile)
             .then(() => {
-                
+                saveUser(name, email, option);
             })
             .catch(err => setSingUpError(err.message))
         })
         .catch(err => setSingUpError(err.message))
-    }
+    };
+
+    // set user database (mongodb)
+    const saveUser = (name, email, option) => {
+        const user = {name, email, option};
+
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            setCreateUserEmail(email);
+        })
+    };
 
     // handle login with google
     const handleLoginWithGoogle = () => {
         signInWithGoogle(googleProvider)
         .then(result => {
             const user = result.user;
+            const option = 'Normal User';
+            saveUser(user?.displayName, user?.email, option);
             toast.success('SignUp successfully.');
-            navigate('/');
+            setCreateUserEmail(user?.email);
             console.log(user);
         })
         .catch(err => console.error(err.message))
