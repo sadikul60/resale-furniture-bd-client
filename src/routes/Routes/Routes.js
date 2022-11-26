@@ -11,6 +11,7 @@ import Blogs from '../../Pages/Blogs/Blogs';
 import AddProduct from '../../Pages/AddProduct/AddProduct';
 import ErrorHandlePage from '../../Pages/ErrorHandlePage/ErrorHandlePage';
 import AllSeller from '../../Pages/AllSeller/AllSeller';
+import AllBuyers from '../../Pages/AllBuyers/AllBuyers';
 
 const router = createBrowserRouter([
     {
@@ -53,8 +54,12 @@ const router = createBrowserRouter([
                 element: <MyOrders></MyOrders>
             },
             {
-                path: '/dashboard/allUsers',
+                path: '/dashboard/allSellers',
                 element: <AllSeller></AllSeller>
+            },
+            {
+                path: '/dashboard/allBuyers',
+                element: <AllBuyers></AllBuyers>
             },
             {
                 path: '/dashboard/addProduct',

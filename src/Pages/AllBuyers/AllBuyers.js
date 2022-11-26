@@ -2,12 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import Loader from '../Shared/Loader/Loader';
 
-const AllSeller = () => {
-    
+const AllBuyers = () => {
     const {data: users = [], isLoading} = useQuery({
         queryKey: ['users'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/users/seller');
+            const res = await fetch('http://localhost:5000/users/user');
             const data = await res.json();
             return data;
         }
@@ -52,4 +51,4 @@ const AllSeller = () => {
     );
 };
 
-export default AllSeller;
+export default AllBuyers;
