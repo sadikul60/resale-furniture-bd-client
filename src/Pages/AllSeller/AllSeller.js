@@ -3,13 +3,13 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import Loader from '../Shared/Loader/Loader';
 
-const Allusrs = () => {
+const AllSeller = () => {
     const {user} = useContext(AuthContext);
 
     const {data: users = [], isLoading} = useQuery({
         queryKey: ['users'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/users');
+            const res = await fetch('http://localhost:5000/users/seller');
             const data = await res.json();
             return data;
         }
@@ -21,7 +21,7 @@ const Allusrs = () => {
     }
     return (
         <div>
-            <h1 className='text-2xl font-bold text-center p-4'>My Orders: {users?.length}</h1>
+            <h1 className='text-3xl font-bold text-center p-4'>All Sellers: {users?.length}</h1>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table w-full">
@@ -54,4 +54,4 @@ const Allusrs = () => {
     );
 };
 
-export default Allusrs;
+export default AllSeller;

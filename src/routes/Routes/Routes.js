@@ -8,8 +8,9 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import MyOrders from '../../Pages/MyOrders/MyOrders';
 import DashboardLayout from '../../layouts/DashboardLayout/DashboardLayout';
 import Blogs from '../../Pages/Blogs/Blogs';
-import AllUsers from '../../Pages/AllUsers/AllUsers';
 import AddProduct from '../../Pages/AddProduct/AddProduct';
+import ErrorHandlePage from '../../Pages/ErrorHandlePage/ErrorHandlePage';
+import AllSeller from '../../Pages/AllSeller/AllSeller';
 
 const router = createBrowserRouter([
     {
@@ -53,13 +54,17 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allUsers',
-                element: <AllUsers></AllUsers>
+                element: <AllSeller></AllSeller>
             },
             {
                 path: '/dashboard/addProduct',
                 element: <AddProduct></AddProduct>
             },
         ]
+    },
+    {
+        path: '*',
+        element: <ErrorHandlePage></ErrorHandlePage>
     }
 ]);
 

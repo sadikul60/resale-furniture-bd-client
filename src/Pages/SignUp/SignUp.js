@@ -76,7 +76,7 @@ const SignUp = () => {
         signInWithGoogle(googleProvider)
         .then(result => {
             const user = result.user;
-            const option = 'Normal User';
+            const option = 'user';
             saveUser(user?.displayName, user?.email, option);
             toast.success('SignUp successfully.');
             setCreateUserEmail(user?.email);
@@ -109,8 +109,8 @@ const SignUp = () => {
                                 <span className="label-text">Options</span>
                             </label>
                             <select {...register("option", { required: "Option is required"})} name="option" className="select select-bordered w-full">
-                                <option>Normal User</option>
-                                <option>Seller</option>
+                                <option>user</option>
+                                <option>seller</option>
                             </select>
                         </div>
                         <div className="form-control">

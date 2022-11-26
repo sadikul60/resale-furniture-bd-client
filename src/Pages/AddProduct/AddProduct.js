@@ -33,6 +33,7 @@ const AddProduct = () => {
         const originalPrice = data.originalPrice;
         const phone = data.phone;
         const seller = data.seller;
+        const email = data.email;
         const usedYear = data.usedYear;
         const location = data?.location;
         const description = data.description;
@@ -46,7 +47,8 @@ const AddProduct = () => {
             originalPrice,
             location, 
             phone, 
-            seller, 
+            seller,
+            email, 
             usedYear,
             img,
             description
@@ -74,7 +76,7 @@ const AddProduct = () => {
     }
     return (
         <div className='w-10/12 mx-6 p-5'>
-            <h2 className='text-3xl text-center mb-6'>Add A Doctor</h2>
+            <h2 className='text-3xl text-center font-bold mb-6'>Add A Product</h2>
             <form onSubmit={handleSubmit(handleAddDoctor)} className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                 <div className="form-control">
                 <p className='text-red-600'>{AddDoctorError}</p>
@@ -123,6 +125,11 @@ const AddProduct = () => {
                     <span className="label-text">Seller</span>
                     <input defaultValue={user?.displayName} type="text" {...register("seller", { required: "Seller is required"})} placeholder="Seller name" className="input input-bordered" />
                     {errors.seller && <p role="alert" className='text-red-600'>{errors.seller?.message}</p>}
+                </div>
+                <div className="form-control">
+                    <span className="label-text">Email</span>
+                    <input defaultValue={user?.email} type="email" {...register("email", { required: "Email is required"})} placeholder="Seller name" className="input input-bordered" />
+                    {errors.email && <p role="alert" className='text-red-600'>{errors.email?.message}</p>}
                 </div>
                 <div className="form-control">
                     <span className="label-text">Phone no</span>

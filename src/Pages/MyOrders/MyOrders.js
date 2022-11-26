@@ -24,8 +24,8 @@ const MyOrders = () => {
     }
     
     return (
-        <div>
-            <h1 className='text-2xl font-bold text-center p-4'>My Orders: {bookings?.length}</h1>
+        <div className='mb-12'>
+            <h1 className='text-3xl font-bold text-center p-4'>My Orders: {bookings?.length}</h1>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table w-full">
