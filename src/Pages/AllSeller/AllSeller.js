@@ -14,10 +14,22 @@ const AllSeller = () => {
         }
     });
 
-    // loader (spinner)
-    if(isLoading){
-        return <Loader></Loader>
-    }
+
+     // handle make admin
+     const handleSellerVerify = id =>{
+        fetch(`http://localhost:5000/users/verify/admin/${id}`, {
+            method: 'PUT',
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount > 0){
+                toast.success('Seller verified successful.');
+                refetch();
+            }
+        })
+    };
+
+    
 
     // handle delete user
     const handleDeleteUser = id => {
@@ -31,6 +43,11 @@ const AllSeller = () => {
             toast.success('Deleted user successful.');
             refetch();
         })
+    };
+
+    // loader (spinner)
+    if(isLoading){
+        return <Loader></Loader>
     }
 
     return (
@@ -45,6 +62,7 @@ const AllSeller = () => {
                             <th>User name</th>
                             <th>Email</th>
                             <th>Position</th>
+                            <th>Verify</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
@@ -55,7 +73,18 @@ const AllSeller = () => {
                                     <td>{usr?.name}</td>
                                     <td>{usr?.email}</td>
                                     <td>{usr?.option}</td>
-                                    <td><button onClick={() => handleDeleteUser(usr._id)} className='btn btn-primary btn-outline rounded-3xl btn-xs'>Delete</button></td>
+                                    <td>
+                                        {
+                                            usr?.verify ? <div className="form-control">
+                                                <label className="cursor-pointer label">
+                                                    <input type="checkbox" checked className="checkbox checkbox-success" />
+                                                </label>
+                                            </div>
+                                            :
+                                            usr?.verify !== 'verified' && <button onClick={() => handleSellerVerify(usr._id)} className='btn btn-primary btn-outline rounded-3xl btn-xs'>Verify</button>
+                                        }
+                                    </td>
+                                    <td><button onClick={() => handleDeleteUser(usr._id)} className='btn btn-secondary btn-outline rounded-3xl btn-xs'>Delete</button></td>
                                 </tr>)
                             }
                         </tbody>

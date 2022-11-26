@@ -16,6 +16,7 @@ import AllUsers from '../../Pages/AllUsers/AllUsers';
 import AddminRoute from '../AddminRoute/AddminRoute';
 import MyProducts from '../../Pages/MyProducts/MyProducts';
 import SellerRoute from '../SellerRoute/SellerRoute';
+import Dashboard from '../../Pages/DashBoard/Dashboard';
 
 const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
+                element: <Dashboard></Dashboard>
+            },
+            {
+                path: '/dashboard/myOrders',
                 element: <MyOrders></MyOrders>
             },
             {

@@ -13,10 +13,7 @@ const AllUsers = () => {
         }
     });
 
-    // loader (spinner)
-    if(isLoading){
-        return <Loader></Loader>
-    }
+   
 
     // handle make admin
     const handleMakeAdmin = id =>{
@@ -28,9 +25,6 @@ const AllUsers = () => {
             if(data.modifiedCount > 0){
                 toast.success('Make admin successful');
                 refetch();
-            }
-            else{
-                toast.warn('Forbidden Access')
             }
         })
     };
@@ -49,9 +43,14 @@ const AllUsers = () => {
         })
     }
     
+     // loader (spinner)
+     if(isLoading){
+        return <Loader></Loader>
+    }
+    
     return (
         <div className='mb-12'>
-            <h1 className='text-3xl font-bold text-center p-4'>All Sellers: {users?.length}</h1>
+            <h1 className='text-3xl font-bold text-center p-4'>All Users: {users?.length}</h1>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table w-full">
