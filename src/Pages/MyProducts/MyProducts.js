@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import Loader from '../Shared/Loader/Loader';
 import MyProduct from './MyProduct';
@@ -16,6 +17,22 @@ const MyProducts = () => {
         }
     });
 
+    
+
+    // handle delete user
+    const handleDeleteProduct = id => {
+
+        fetch(`http://localhost:5000/addProducts/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            toast.success('Deleted Product successful.');
+            refetch();
+        })
+    }
+
     // Loader (spinner)
     if(isLoading){
         return <Loader></Loader>
@@ -28,6 +45,8 @@ const MyProducts = () => {
                     products.map(product => <MyProduct
                         key={product._id}
                         product = {product}
+                        refetch = {refetch}
+                        handleDeleteProduct = {handleDeleteProduct}
                     ></MyProduct>)
                 }
             </div>

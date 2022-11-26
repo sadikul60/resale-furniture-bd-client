@@ -2,12 +2,17 @@ import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useAdmin from '../../hooks/UseAdmin';
+import UseSeller from '../../hooks/UseSeller';
+import UseUser from '../../hooks/UseUser';
 import Navbar from '../../Pages/Shared/Navbar/Navbar';
 
 const DashboardLayout = () => {
     const { user } = useContext(AuthContext);
 
     const [isAdmin] = useAdmin(user?.email);
+    const [isSeller] = UseSeller(user?.email);
+    const [isUser] = UseUser(user?.email);
+
     return (
         <section className=''>
             <Navbar></Navbar>
@@ -22,10 +27,13 @@ const DashboardLayout = () => {
                         <ul className="menu p-4 w-80 bg-gradient-to-r from-primary to-neutral text-white font-bold">
                             
                             {
-                                user && <li><Link to='/dashboard'>My Orders</Link></li>
+                                user && isUser && <li><Link to='/dashboard'>My Orders</Link></li>
                             }
                             {
-                                user && <li><Link to='/dashboard/myProducts'>My Product</Link></li>
+                                user && isSeller && <>
+                                    <li><Link to='/dashboard/myProducts'>My Product</Link></li>
+                                    <li><Link to='/dashboard/addProduct'>Add Product</Link></li>
+                                </>
                             }
                             
                             {
@@ -33,7 +41,7 @@ const DashboardLayout = () => {
                                     <li><Link to='/dashboard/allSellers'>All Sellers</Link></li>
                                     <li><Link to='/dashboard/allBuyers'>All Buyers</Link></li>
                                     <li><Link to='/dashboard/allUsers'>All Users</Link></li>
-                                    <li><Link to='/dashboard/addProduct'>Add Product</Link></li>
+                                    
                                 </>
                             }
                         </ul>
