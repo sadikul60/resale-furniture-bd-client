@@ -12,7 +12,7 @@ const Login = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const [loginError, setLoginError] = useState('');
     const [loginUserEmail, setLoginUserEmail] = useState('');
-    const [token] = useToken(loginUserEmail);
+    // const [token] = useToken(loginUserEmail);
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -20,9 +20,9 @@ const Login = () => {
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
-    if(token){
-        navigate(from, {replace: true});
-    }
+    // if(token){
+    //     navigate(from, {replace: true});
+    // }
 
     // handle login with email & password
     const handleLogin = data => {
@@ -45,6 +45,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             toast.success('Login successfully.');
+            navigate(from, {replace: true});
             setLoginUserEmail(user?.email);
             
         })

@@ -13,6 +13,7 @@ import ErrorHandlePage from '../../Pages/ErrorHandlePage/ErrorHandlePage';
 import AllSeller from '../../Pages/AllSeller/AllSeller';
 import AllBuyers from '../../Pages/AllBuyers/AllBuyers';
 import AllUsers from '../../Pages/AllUsers/AllUsers';
+import AddminRoute from '../AddminRoute/AddminRoute';
 
 const router = createBrowserRouter([
     {
@@ -56,19 +57,19 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allUsers',
-                element: <AllUsers></AllUsers>
+                element: <AddminRoute><AllUsers></AllUsers></AddminRoute>
             },
             {
                 path: '/dashboard/allSellers',
-                element: <AllSeller></AllSeller>
+                element: <AddminRoute><AllSeller></AllSeller></AddminRoute>
             },
             {
                 path: '/dashboard/allBuyers',
-                element: <AllBuyers></AllBuyers>
+                element: <AddminRoute><AllBuyers></AllBuyers></AddminRoute>
             },
             {
                 path: '/dashboard/addProduct',
-                element: <AddProduct></AddProduct>
+                element: <AddminRoute><AddProduct></AddProduct></AddminRoute>
             },
         ]
     },

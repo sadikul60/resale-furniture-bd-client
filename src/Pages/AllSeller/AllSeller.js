@@ -19,24 +19,6 @@ const AllSeller = () => {
         return <Loader></Loader>
     }
 
-    const handleMakeAdmin = id =>{
-        fetch(`http://localhost:5000/users/admin/${id}`, {
-            method: 'PUT',
-            headers: {
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount > 0){
-                toast.success('Make admin successful');
-                refetch();
-            }
-            else{
-                toast.warn('Forbidden Access')
-            }
-        })
-    }
     return (
         <div className='mb-12'>
             <h1 className='text-3xl font-bold text-center p-4'>All Sellers: {users?.length}</h1>

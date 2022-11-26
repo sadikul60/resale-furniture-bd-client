@@ -18,12 +18,10 @@ const AllUsers = () => {
         return <Loader></Loader>
     }
 
+    // handle make admin
     const handleMakeAdmin = id =>{
         fetch(`http://localhost:5000/users/admin/${id}`, {
             method: 'PUT',
-            headers: {
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
-            }
         })
         .then(res => res.json())
         .then(data => {
@@ -35,7 +33,22 @@ const AllUsers = () => {
                 toast.warn('Forbidden Access')
             }
         })
+    };
+
+    // handle delete user
+    const handleDeleteUser = id => {
+
+        fetch(`http://localhost:5000/users/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            toast.success('Deleted user successful.');
+            refetch();
+        })
     }
+    
     return (
         <div className='mb-12'>
             <h1 className='text-3xl font-bold text-center p-4'>All Sellers: {users?.length}</h1>
@@ -64,7 +77,9 @@ const AllUsers = () => {
                                             usr?.role !== 'admin' && <button onClick={() => handleMakeAdmin(usr._id)} className='btn btn-primary btn-outline rounded-3xl btn-xs'>Add Admin</button>
                                         }
                                     </td>
-                                    <td><button className='btn btn-primary btn-outline rounded-3xl btn-xs'>Delete</button></td>
+                                    <td>
+                                    <button onClick={() => handleDeleteUser(usr._id)} className='btn btn-primary btn-outline rounded-3xl btn-xs'>Delete</button>
+                                    </td>
                                 </tr>)
                             }
                         </tbody>

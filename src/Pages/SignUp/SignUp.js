@@ -11,15 +11,15 @@ const SignUp = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const [createUserEmail, setCreateUserEmail] = useState('');
     const [signUpError, setSingUpError] = useState('');
-    const [token] = useToken(createUserEmail);
+    // const [token] = useToken(createUserEmail);
 
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
-    if(token){
-        navigate(from, {replace: true});
-    }
+    // if(token){
+    //     navigate(from, {replace: true});
+    // }
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -68,6 +68,7 @@ const SignUp = () => {
         .then(data => {
             console.log(data);
             setCreateUserEmail(email);
+            navigate('/')
         })
     };
 
@@ -79,6 +80,7 @@ const SignUp = () => {
             const option = 'user';
             saveUser(user?.displayName, user?.email, option);
             toast.success('SignUp successfully.');
+            navigate('/')
             setCreateUserEmail(user?.email);
             console.log(user);
         })
