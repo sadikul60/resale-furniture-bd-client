@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-toastify';
 import Loader from '../Shared/Loader/Loader';
 
 const AllBuyers = () => {
-    const {data: users = [], isLoading} = useQuery({
+    const {data: users = [], isLoading, refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async() => {
             const res = await fetch('http://localhost:5000/users/user');
@@ -11,6 +12,20 @@ const AllBuyers = () => {
             return data;
         }
     });
+
+    // handle delete user
+    const handleDeleteUser = id => {
+
+        fetch(`http://localhost:5000/users/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            toast.success('Deleted user successful.');
+            refetch();
+        })
+    }
 
     // loader (spinner)
     if(isLoading){
@@ -38,7 +53,7 @@ const AllBuyers = () => {
                                     <td>{usr?.name}</td>
                                     <td>{usr?.email}</td>
                                     <td>{usr?.option}</td>
-                                    <td><button className='btn btn-primary btn-outline rounded-3xl btn-xs'>Delete</button></td>
+                                    <td><button onClick={() => handleDeleteUser(usr._id)} className='btn btn-primary btn-outline rounded-3xl btn-xs'>Delete</button></td>
                                 </tr>)
                             }
                         </tbody>

@@ -19,6 +19,20 @@ const AllSeller = () => {
         return <Loader></Loader>
     }
 
+    // handle delete user
+    const handleDeleteUser = id => {
+
+        fetch(`http://localhost:5000/users/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            toast.success('Deleted user successful.');
+            refetch();
+        })
+    }
+
     return (
         <div className='mb-12'>
             <h1 className='text-3xl font-bold text-center p-4'>All Sellers: {users?.length}</h1>
@@ -41,7 +55,7 @@ const AllSeller = () => {
                                     <td>{usr?.name}</td>
                                     <td>{usr?.email}</td>
                                     <td>{usr?.option}</td>
-                                    <td><button className='btn btn-primary btn-outline rounded-3xl btn-xs'>Delete</button></td>
+                                    <td><button onClick={() => handleDeleteUser(usr._id)} className='btn btn-primary btn-outline rounded-3xl btn-xs'>Delete</button></td>
                                 </tr>)
                             }
                         </tbody>

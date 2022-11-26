@@ -14,6 +14,7 @@ import AllSeller from '../../Pages/AllSeller/AllSeller';
 import AllBuyers from '../../Pages/AllBuyers/AllBuyers';
 import AllUsers from '../../Pages/AllUsers/AllUsers';
 import AddminRoute from '../AddminRoute/AddminRoute';
+import MyProducts from '../../Pages/MyProducts/MyProducts';
 
 const router = createBrowserRouter([
     {
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
                 path: '/dashboard/addProduct',
                 element: <AddminRoute><AddProduct></AddProduct></AddminRoute>
             },
+            {
+                path: '/dashboard/myProducts',
+                element: <MyProducts></MyProducts>
+            }
         ]
     },
     {
