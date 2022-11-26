@@ -38,6 +38,7 @@ const AddProduct = () => {
         const location = data?.location;
         const description = data.description;
         const img = data.img;
+        const type = data.type;
 
         const product = {
             productName,
@@ -51,7 +52,8 @@ const AddProduct = () => {
             email, 
             usedYear,
             img,
-            description
+            description,
+            type
         }
 
          //save doctor information to the database
@@ -110,6 +112,14 @@ const AddProduct = () => {
                     <span className="label-text">Original Price</span>
                     <input type="text" {...register("originalPrice", { required: "originalPrice is required"})} placeholder="Original Price" className="input input-bordered" />
                     {errors.originalPrice && <p role="alert" className='text-red-600'>{errors.originalPrice?.message}</p>}
+                </div>
+                <div>
+                    <span className="label-text">Product Type</span>
+                    <select {...register('type')} className="select select-bordered w-full">
+                             <option>Exellent</option>
+                             <option>Good</option>
+                             <option>Fair</option>
+                    </select>
                 </div>
                 <div className="form-control">
                     <span className="label-text">Used years</span>

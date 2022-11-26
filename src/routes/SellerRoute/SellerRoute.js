@@ -6,15 +6,15 @@ import Loader from '../../Pages/Shared/Loader/Loader';
 
 const SellerRoute = ({children}) => {
     const {user, loading} = useContext(AuthContext);
-    const [isAdmin, isAdminLoading] = UseSeller(user?.email);
+    const [isSeller, isSellerLoading] = UseSeller(user?.email);
 
     const location = useLocation();
 
-    if(loading || isAdminLoading){
+    if(loading || isSellerLoading){
         return <Loader></Loader>
     }
 
-    if(user && isAdmin){
+    if(user && isSeller){
         return children;
     }
 

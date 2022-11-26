@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MyProduct = ({product, handleDeleteProduct, refetch}) => {
-    const {_id, productName, img, description, resalePrice, originalPrice, location, phone, seller, usedYear} = product;
+    const {_id, productName, img, description, resalePrice, originalPrice, type, location, phone, seller, usedYear} = product;
     
 
     refetch();
@@ -12,7 +12,7 @@ const MyProduct = ({product, handleDeleteProduct, refetch}) => {
             <div className="card-body">
                 <h2 className="card-title">
                 {productName}
-                <div className="badge badge-secondary">GOOD</div>
+                <div className="badge badge-secondary">{type}</div>
                 </h2>
                 <p>{description}</p>
                 <p className='font-bold'>Resale Price: ${resalePrice}</p>
