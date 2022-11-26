@@ -12,6 +12,7 @@ import AddProduct from '../../Pages/AddProduct/AddProduct';
 import ErrorHandlePage from '../../Pages/ErrorHandlePage/ErrorHandlePage';
 import AllSeller from '../../Pages/AllSeller/AllSeller';
 import AllBuyers from '../../Pages/AllBuyers/AllBuyers';
+import AllUsers from '../../Pages/AllUsers/AllUsers';
 
 const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/allUsers',
+                element: <AllUsers></AllUsers>
             },
             {
                 path: '/dashboard/allSellers',

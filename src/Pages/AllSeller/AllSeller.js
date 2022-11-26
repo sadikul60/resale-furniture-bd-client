@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-toastify';
 import Loader from '../Shared/Loader/Loader';
 
 const AllSeller = () => {
-    
-    const {data: users = [], isLoading} = useQuery({
+
+    const {data: users = [], isLoading, refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async() => {
             const res = await fetch('http://localhost:5000/users/seller');
@@ -16,6 +17,25 @@ const AllSeller = () => {
     // loader (spinner)
     if(isLoading){
         return <Loader></Loader>
+    }
+
+    const handleMakeAdmin = id =>{
+        fetch(`http://localhost:5000/users/admin/${id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount > 0){
+                toast.success('Make admin successful');
+                refetch();
+            }
+            else{
+                toast.warn('Forbidden Access')
+            }
+        })
     }
     return (
         <div className='mb-12'>
@@ -29,7 +49,6 @@ const AllSeller = () => {
                             <th>User name</th>
                             <th>Email</th>
                             <th>Position</th>
-                            <th>Action</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
@@ -40,7 +59,6 @@ const AllSeller = () => {
                                     <td>{usr?.name}</td>
                                     <td>{usr?.email}</td>
                                     <td>{usr?.option}</td>
-                                    <td><button className='btn btn-primary btn-outline rounded-3xl btn-xs'>Add Admin</button></td>
                                     <td><button className='btn btn-primary btn-outline rounded-3xl btn-xs'>Delete</button></td>
                                 </tr>)
                             }

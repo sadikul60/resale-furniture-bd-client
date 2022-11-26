@@ -27,16 +27,13 @@ const Login = () => {
     // handle login with email & password
     const handleLogin = data => {
         
-        const email = data.email;
-        const password = data.password;
-        console.log(email, password)
         logIn(data.email, data.password)
         .then(result => {
             const user = result.user;
-            setLoginUserEmail(user?.email);
             setLoginError('')
             toast.success('Login successfully.');
             navigate(from, {replace: true});
+            setLoginUserEmail(data.email);
             console.log(user)
         })
         .catch(err => setLoginError(err.message))

@@ -1,12 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-toastify';
 import Loader from '../Shared/Loader/Loader';
 
-const AllBuyers = () => {
-    const {data: users = [], isLoading} = useQuery({
+const AllUsers = () => {
+    const {data: users = [], isLoading, refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/users/user');
+            const res = await fetch('http://localhost:5000/users');
             const data = await res.json();
             return data;
         }
@@ -15,6 +16,25 @@ const AllBuyers = () => {
     // loader (spinner)
     if(isLoading){
         return <Loader></Loader>
+    }
+
+    const handleMakeAdmin = id =>{
+        fetch(`http://localhost:5000/users/admin/${id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount > 0){
+                toast.success('Make admin successful');
+                refetch();
+            }
+            else{
+                toast.warn('Forbidden Access')
+            }
+        })
     }
     return (
         <div className='mb-12'>
@@ -28,6 +48,7 @@ const AllBuyers = () => {
                             <th>User name</th>
                             <th>Email</th>
                             <th>Position</th>
+                            <th>Action</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
@@ -38,6 +59,11 @@ const AllBuyers = () => {
                                     <td>{usr?.name}</td>
                                     <td>{usr?.email}</td>
                                     <td>{usr?.option}</td>
+                                    <td>
+                                        {
+                                            usr?.role !== 'admin' && <button onClick={() => handleMakeAdmin(usr._id)} className='btn btn-primary btn-outline rounded-3xl btn-xs'>Add Admin</button>
+                                        }
+                                    </td>
                                     <td><button className='btn btn-primary btn-outline rounded-3xl btn-xs'>Delete</button></td>
                                 </tr>)
                             }
@@ -49,4 +75,4 @@ const AllBuyers = () => {
     );
 };
 
-export default AllBuyers;
+export default AllUsers;
