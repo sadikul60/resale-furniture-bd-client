@@ -8,7 +8,7 @@ const AllSeller = () => {
     const {data: users = [], isLoading, refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/users/seller');
+            const res = await fetch('https://resale-furniture-server-kappa.vercel.app/users/seller');
             const data = await res.json();
             return data;
         }
@@ -17,7 +17,7 @@ const AllSeller = () => {
 
      // handle make admin
      const handleSellerVerify = id =>{
-        fetch(`http://localhost:5000/users/verify/admin/${id}`, {
+        fetch(`https://resale-furniture-server-kappa.vercel.app/users/verify/admin/${id}`, {
             method: 'PUT',
         })
         .then(res => res.json())
@@ -34,7 +34,7 @@ const AllSeller = () => {
     // handle delete user
     const handleDeleteUser = id => {
 
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://resale-furniture-server-kappa.vercel.app/users/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

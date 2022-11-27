@@ -12,7 +12,7 @@ const Product = ({product, setProduct}) => {
     
     // used axios
     useEffect( () => {
-        axios.get('http://localhost:5000/users/seller')
+        axios.get('https://resale-furniture-server-kappa.vercel.app/users/seller')
         .then(data => {
             const users = data.data;
             setUsers(users);
@@ -20,7 +20,7 @@ const Product = ({product, setProduct}) => {
     }, [])
 
     return (
-        <div className="card mx-4 bg-base-100 shadow-xl">
+        <div className="card mx-4 bg-base-100 mt-3 shadow-xl">
             <figure><img className='w-10/12 lg:h-96 rounded-lg' src={img} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">
@@ -32,14 +32,16 @@ const Product = ({product, setProduct}) => {
                 <p className='font-bold'>Original Price: ${originalPrice}</p>
                 <p className='font-bold'>Used year: {usedYear}</p>
                 <p className='font-bold'>Location: {location}</p>
-                <div className='flex justify-start items-center'>
+                <div className='flex justify-start items-center relative'>
                     <p className='font-bold'>Seller: {seller}</p>
-                    {
-                        users.map(user => <ProductVerify
-                            key={user._id}
-                            user = {user}
-                        ></ProductVerify>)
-                    }
+                    <div className='absolute left-56'>
+                        {
+                            users.map(user => <ProductVerify
+                                key={user._id}
+                                user = {user}
+                            ></ProductVerify>)
+                        }
+                    </div>
                 </div>
                 <p className='font-bold'>Phone no: {phone}</p>
                 <div className="flex justify-center mt-2">

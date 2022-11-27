@@ -27,7 +27,7 @@ const BookingModal = ({product, setProduct}) => {
         }
 
         // fetch data and save to mongodb
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://resale-furniture-server-kappa.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

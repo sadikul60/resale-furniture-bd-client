@@ -17,7 +17,7 @@ const AddProduct = () => {
     const {data : categories = [], isLoading , refetch} = useQuery({
         queryKey: ['product'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/categories');
+            const res = await fetch('https://resale-furniture-server-kappa.vercel.app/categories');
             const data = await res.json();
             return data;
         }
@@ -56,7 +56,7 @@ const AddProduct = () => {
         }
 
          //save doctor information to the database
-         fetch('http://localhost:5000/addProduct', {
+         fetch('https://resale-furniture-server-kappa.vercel.app/addProduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

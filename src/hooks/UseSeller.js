@@ -6,7 +6,7 @@ const UseSeller = email => {
 
     useEffect( () => {
         if(email){
-            fetch(`http://localhost:5000/users/seller/${email}`)
+            fetch(`https://resale-furniture-server-kappa.vercel.app/users/seller/${email}`)
             .then(res => res.json())
             .then(data => {
                 

@@ -44,7 +44,7 @@ const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoute><Products></Products></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/categories/${params.id}`)
+                loader: ({params}) => fetch(`https://resale-furniture-server-kappa.vercel.app/categories/${params.id}`)
             },
             {
                 path: '/blogs',
@@ -87,7 +87,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({params}) => fetch(`http://localhost:5000/payment/${params.id}`)
+                loader: ({params}) => fetch(`https://resale-furniture-server-kappa.vercel.app/payment/${params.id}`)
             },
         ]
     },

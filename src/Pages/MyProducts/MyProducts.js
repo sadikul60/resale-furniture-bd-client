@@ -11,7 +11,7 @@ const MyProducts = () => {
     const {data: products = [], isLoading, refetch} = useQuery({
         queryKey: ['addProducts', user?.email],
         queryFn: async() => {
-            const res = await fetch(`http://localhost:5000/addProducts/${user?.email}`);
+            const res = await fetch(`https://resale-furniture-server-kappa.vercel.app/addProducts/${user?.email}`);
             const data = await res.json();
             return data;
         }
@@ -22,7 +22,7 @@ const MyProducts = () => {
     // handle delete user
     const handleDeleteProduct = id => {
 
-        fetch(`http://localhost:5000/addProducts/${id}`, {
+        fetch(`https://resale-furniture-server-kappa.vercel.app/addProducts/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

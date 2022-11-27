@@ -8,8 +8,8 @@ const Products = () => {
     const [product, setProduct] = useState(null);
      
     return (
-        <section className='container mx-auto my-12'>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5'>
+        <section className='container mx-auto my-12 py-12 px-5 bg-gradient-to-r from-slate-300 to-slate-500'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6'>
                 {
                     products.map(product => <Product
                         key={product._id}
