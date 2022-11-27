@@ -12,7 +12,7 @@ const UseUser = email => {
                 
                 setIsUser(data?.isUser);
                 setIsUserLoading(false);
-                console.log(data)
+                
             })
         }
     }, [email]);

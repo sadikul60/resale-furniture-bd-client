@@ -8,7 +8,7 @@ import Loader from '../Shared/Loader/Loader';
 
 const AddProduct = () => {
     const {user} = useContext(AuthContext);
-    const {register, handleSubmit, resetField, formState: {errors}} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm();
 
     const [AddDoctorError, setAddDoctorError] = useState('');
     
@@ -24,7 +24,6 @@ const AddProduct = () => {
     });
 
     const handleAddDoctor = data => {
-
 
         const productName = data.productName;
         const categoryName = data.categoryName;
@@ -68,8 +67,7 @@ const AddProduct = () => {
         .then(res => res.json())
         .then(data => {
             toast.success('Product Uploaded successfully.');
-            navigate('/dashboard/addProduct');
-            console.log(data);
+            navigate('/dashboard/myProducts');
         }) 
     }
 

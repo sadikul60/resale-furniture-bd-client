@@ -12,7 +12,7 @@ const MyProduct = ({product, handleDeleteProduct, refetch}) => {
             <div className="card-body">
                 <h2 className="card-title">
                 {productName}
-                <div className="badge badge-secondary">{type}</div>
+                <div className="badge badge-primary">{type}</div>
                 </h2>
                 <p>{description}</p>
                 <p className='font-bold'>Resale Price: ${resalePrice}</p>
@@ -21,7 +21,11 @@ const MyProduct = ({product, handleDeleteProduct, refetch}) => {
                 <p className='font-bold'>Location: {location}</p>
                 <p className='font-bold'>Seller: {seller}</p>
                 <p className='font-bold'>Phone no: {phone}</p>
-                <div className="flex justify-end mt-2"> 
+                <div className="flex justify-center mt-2"> 
+                    <label
+                       className="w-6/12 btn btn-primary btn-outline rounded-3xl text-sm md:text-lg mr-3 font-bold">
+                    <p>Advertise</p>
+                    </label>
                     <label
                         onClick={() => handleDeleteProduct(_id)}
                        className="w-6/12 btn btn-secondary btn-outline rounded-3xl text-sm md:text-lg font-bold">

@@ -12,7 +12,7 @@ const UseSeller = email => {
                 
                 setIsSeller(data?.isSeller);
                 setIsSellerLoading(false);
-                console.log(data)
+                
             })
         }
     }, [email]);

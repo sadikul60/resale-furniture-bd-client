@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import UseSeller from '../../hooks/UseSeller';
+import ProductVerify from './BookingModal/ProductVerify';
 
 
 const Product = ({product, setProduct}) => {
   
     const [users, setUsers] = useState([]);
-    
+    console.log(users)
     const {productName, img, description, resalePrice, originalPrice, location, phone, seller, usedYear, type} = product;
     
     // used axios
     useEffect( () => {
-        axios.get('http://localhost:5000/users')
+        axios.get('http://localhost:5000/users/seller')
         .then(data => {
             const users = data.data;
             setUsers(users);
@@ -25,7 +25,7 @@ const Product = ({product, setProduct}) => {
             <div className="card-body">
                 <h2 className="card-title">
                 {productName}
-                <div className="badge badge-secondary">{type}</div>
+                <div className="badge badge-primary">{type}</div>
                 </h2>
                 <p>{description}</p>
                 <p className='font-bold'>Resale Price: ${resalePrice}</p>
@@ -34,17 +34,12 @@ const Product = ({product, setProduct}) => {
                 <p className='font-bold'>Location: {location}</p>
                 <div className='flex justify-start items-center'>
                     <p className='font-bold'>Seller: {seller}</p>
-                    {/* {
-                        users.map((user, index) => <div key={index}>{
-                            user?.verify ? <div className="form-control">
-                        <label className="cursor-pointer label">
-                            <input type="checkbox" checked className="checkbox checkbox-success" />
-                        </label>
-                      </div>
-                      :
-                      <p></p>
-                        }</div>)
-                    } */}
+                    {
+                        users.map(user => <ProductVerify
+                            key={user._id}
+                            user = {user}
+                        ></ProductVerify>)
+                    }
                 </div>
                 <p className='font-bold'>Phone no: {phone}</p>
                 <div className="flex justify-center mt-2">
