@@ -31,6 +31,7 @@ const AuthProvider = ({children}) => {
     // log in with google
     const signInWithGoogle = provider => {
         setLoading(true);
+        localStorage.removeItem('accessToken');
         return signInWithPopup(auth, provider);
     };
 

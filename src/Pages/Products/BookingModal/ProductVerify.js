@@ -5,7 +5,7 @@ const ProductVerify = ({user}) => {
     return (
         <div>
             {
-                user.verify &&  verify === "verified" && <div className="form-control">
+                verify === "verified" && <div className="form-control">
                <label className="cursor-pointer label">
                  <input type="checkbox" checked className="checkbox checkbox-success" />
                </label>

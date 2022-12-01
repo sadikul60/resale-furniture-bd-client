@@ -4,13 +4,11 @@
 
 # Live Site: https://resale-furniture-bd.web.app/
 
-### admin: MD. SADIKUL ISLAM
+### Admin: MD. SADIKUL ISLAM
 ### Email: sadikul@gmail.com
 ### Password: 123456
 
-## Client Site Code Link: https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-sadikul60
-
-## Server Site Code Link: https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-sadikul60
+## Server Site Code Link: https://github.com/sadikul60/resale-furniture-bd-server
 
 ### Featured
 * This is Buy-sell second-hand furniture web site. This project named "Resale Furniture BD" . It contains a Navber, with Route set. Home Page The route are - Home, Blogs, Dashboard, conditional rendernign Login/LogOut and Sign Up. Dashboard page the route are - My Orders (Only see Buyers), My Products, Add A Product (Only see Sellers), All Users, All Sellers, All Buyers (Only see Admin). Added Banner, Categories, Contact Us section to Home route. And a Footer is added.
