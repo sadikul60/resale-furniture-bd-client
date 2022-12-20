@@ -18,9 +18,9 @@ const Categories = () => {
         return <Loader></Loader>
     }
     return (
-        <section className='w-5/12 mx-auto my-12 p-5 bg-gradient-to-r from-slate-300 to-slate-400'>
-            <h1 className='text-2xl font-bold text-center'>Products Category</h1>
-            <div>
+        <section className='w-full mx-auto my-12 p-12 bg-gradient-to-r from-slate-300 to-slate-400'>
+            <h1 className='text-2xl text-primary font-bold text-center'>Product Categories</h1>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
                 {
                     categoris.map(category => <Category
                         key={category._id}

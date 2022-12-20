@@ -8,6 +8,7 @@ const useToken = (email) => {
         fetch(`https://resale-furniture-server-kappa.vercel.app/jwt?email=${email}`)
           .then((res) => res.json())
           .then((data) => {
+            console.log(data)
             if (data.accessToken) {
               localStorage.setItem("accessToken", data.accessToken);
               setToken(data.accessToken);

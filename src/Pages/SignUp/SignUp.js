@@ -11,15 +11,16 @@ const SignUp = () => {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const [createUserEmail, setCreateUserEmail] = useState('');
     const [signUpError, setSingUpError] = useState('');
-    // const [token] = useToken(createUserEmail);
+    const [token] = useToken(createUserEmail);
 
+    console.log('Token Checked', token)
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
-    // if(token){
-    //     navigate(from, {replace: true});
-    // }
+    if(token){
+        navigate(from, {replace: true});
+    }
 
     const googleProvider = new GoogleAuthProvider();
 

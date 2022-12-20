@@ -7,7 +7,6 @@ import ProductVerify from './BookingModal/ProductVerify';
 const Product = ({product, setProduct}) => {
   
     const [users, setUsers] = useState([]);
-    console.log(users)
     const {productName, img, description, resalePrice, originalPrice, location, phone, seller, usedYear, type} = product;
     
     // used axios
