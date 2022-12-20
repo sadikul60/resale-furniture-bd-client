@@ -20,7 +20,7 @@ const Product = ({product, setProduct}) => {
 
     return (
         <div className="card mx-4 bg-base-100 mt-3 shadow-xl">
-            <figure><img className='w-10/12 lg:h-96 rounded-lg' src={img} alt="Shoes" /></figure>
+            <figure><img className='w-full lg:h-96 p-8 rounded-lg' src={img} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">
                 {productName}

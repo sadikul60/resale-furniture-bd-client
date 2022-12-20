@@ -6,9 +6,9 @@ const Category = ({category}) => {
     return (
         <div className='lg:w-full bg-gradient-to-r from-primary to-neutral mx-auto mt-4'>
             <Link to={`/category/${category?.categoryId}`}>
-                <div className='text-center p-14 hover:animate-pulse'>
+                <div className='text-center p-6 hover:animate-pulse'>
                     <img className='w-full rounded-lg' src={img} alt="" />
-                    <p className='text-3xl font-semibold text-white mt-4'>{name}</p>
+                    <p className='text-2xl font-semibold text-white mt-4'>{name}</p>
                 </div>
             </Link>
         </div>

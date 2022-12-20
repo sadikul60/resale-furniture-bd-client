@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const AboutUs = () => {
+const ContactUs = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -30,4 +30,4 @@ const AboutUs = () => {
     );
 };
 
-export default AboutUs;
+export default ContactUs;

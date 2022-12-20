@@ -1,7 +1,9 @@
 import React from 'react';
-import AboutUs from '../ContactUs/ContactUs';
+import About from '../AboutUs/About';
 import Banner from '../Banner/Banner';
 import Categories from '../Categories/Categories';
+import ContactUs from '../ContactUs/ContactUs';
+import OurStats from '../OurStats/OurStats';
 
 
 const Home = () => {
@@ -9,7 +11,9 @@ const Home = () => {
         <section className='container mx-auto my-12'>
             <Banner></Banner>
             <Categories></Categories>
-            <AboutUs></AboutUs>
+            <OurStats></OurStats>
+            <About></About>
+            <ContactUs></ContactUs>
         </section>
     );
 };
