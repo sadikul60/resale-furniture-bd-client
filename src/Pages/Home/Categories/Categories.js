@@ -19,7 +19,7 @@ const Categories = () => {
     }
     return (
         <section className='w-full mx-auto my-12 p-12 bg-gradient-to-r from-slate-300 to-slate-400'>
-            <h1 className='text-2xl text-primary font-bold text-center'>Product Categories</h1>
+            <h1 className='text-2xl text-primary font-bold text-center mb-8'>Product Categories</h1>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12'>
                 {
                     categoris.map(category => <Category
