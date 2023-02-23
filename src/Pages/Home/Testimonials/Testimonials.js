@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import person1 from "../../../assets/image/person1.jpg"
 import person2 from "../../../assets/image/person2.avif"
 import person3 from "../../../assets/image/person3.jpg"
+import person4 from "../../../assets/image/person4.jpg"
+import person5 from "../../../assets/image/person5.jpg"
+import person6 from "../../../assets/image/person6.jpg"
+import person7 from "../../../assets/image/person7.jpg"
+import person8 from "../../../assets/image/person8.jpg"
 
 const Testimonials = () => {
     const data = [
@@ -33,23 +38,39 @@ const Testimonials = () => {
         },
         {
             id: 4,
-            img: person1,
-            name: "Alina",
-            title: "Web Developer",
+            img: person4,
+            name: "Bilkis Mozumdar",
+            title: "Instractor",
             rating: "star",
             details: "email, facebook, linkedIn profile thakbe."
         },
         {
             id: 5,
-            img: person2,
-            name: "Kowsik Roy",
-            title: "Bussinessman",
+            img: person5,
+            name: "Karina",
+            title: "Senior Exacutive",
             rating: "star",
             details: "email, facebook, linkedIn profile thakbe."
         },
         {
             id: 6,
-            img: person3,
+            img: person6,
+            name: "Nabila",
+            title: "Actor",
+            rating: "star",
+            details: "email, facebook, linkedIn profile thakbe."
+        },
+        {
+            id: 7,
+            img: person7,
+            name: "Chonchol",
+            title: "Doctor",
+            rating: "star",
+            details: "email, facebook, linkedIn profile thakbe."
+        },
+        {
+            id: 8,
+            img: person8,
             name: "Jamal Vuwa",
             title: "Doctor",
             rating: "star",
