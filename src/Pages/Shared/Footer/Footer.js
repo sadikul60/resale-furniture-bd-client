@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+    
     return (
         <div>
             <footer className="footer p-10 bg-primary  text-white">

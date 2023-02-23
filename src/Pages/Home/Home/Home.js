@@ -4,6 +4,7 @@ import Banner from '../Banner/Banner';
 import Categories from '../Categories/Categories';
 import ContactUs from '../ContactUs/ContactUs';
 import OurStats from '../OurStats/OurStats';
+import Testimonials from '../Testimonials/Testimonials';
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
             <Categories></Categories>
             <OurStats></OurStats>
             <About></About>
+            <Testimonials />
             <ContactUs></ContactUs>
         </section>
     );
